@@ -1,25 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/old-path",
-      "destination": "/new-path"
-    }
-  ],
-  "headers": [
-    {
       "source": "/(.*)",
-      "headers": [
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        }
-      ]
+      "destination": "/index.html"
     }
-  ],
-  "functions": {
-    "api/my-function.js": {
-      "memory": 1024,
-      "maxDuration": 60
-    }
-  }
+  ]
 }
