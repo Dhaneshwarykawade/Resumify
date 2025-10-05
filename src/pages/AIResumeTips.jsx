@@ -27,7 +27,7 @@ const AIResumeTips = () => {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/api/analyzeResume", {
+      const res = await fetch(" https://resumify-backend-7hhm.onrender.com/api/analyzeResume", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ resumeText }),
@@ -66,7 +66,7 @@ const AIResumeTips = () => {
     formData.append("resumeFile", file);
 
     try {
-      const res = await fetch("http://localhost:5000/api/analyzeResumeFile", {
+      const res = await fetch(" https://resumify-backend-7hhm.onrender.com/api/analyzeResumeFile", {
         method: "POST",
         body: formData,
       });

@@ -9,10 +9,10 @@ import { loadFull } from "tsparticles";
 import Particles from "react-tsparticles";
 import { motion } from "framer-motion";
 
-
 const particlesInit = async (main) => {
   await loadFull(main);
 };
+
 
 
 // Step configuration for the multi-step form
@@ -49,6 +49,7 @@ const CreateResumeMultiStep = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const location = useLocation();
+  const baseUrl = " https://resumify-backend-7hhm.onrender.com"
 
   const [currentStep, setCurrentStep] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -242,7 +243,7 @@ const CreateResumeMultiStep = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/labels/${languageCode}`
+        `${baseUrl}/api/labels/${languageCode}`
       );
       if (response.ok) {
         const data = await response.json();
@@ -342,7 +343,7 @@ const CreateResumeMultiStep = () => {
     try {
       showInfoToast("🔄 Translating your resume content...");
       const response = await fetch(
-        "http://localhost:5000/api/translateResume",
+        `${baseUrl}/api/translateResume`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
